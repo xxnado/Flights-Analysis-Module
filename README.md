@@ -107,7 +107,7 @@ Setting the PEP 8 compliance threshold of pylint to 8 is a practical compromise 
 - Davide Rebuzzini
 - Leonardo Heinemann
 - Markus Giesbrecht
-- Michel Oeding-erdel
+- Michel Oeding-Erdel
 
 # License
 
