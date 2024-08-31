@@ -1,6 +1,7 @@
 # Module Overview
 
-This module provides a comprehensive solution for analyzing and visualizing 
+This module was built as part of a group project in the "Advanced Programming for Data Science Class" at NOVA School of Business and Economics.
+The module provides a comprehensive solution for analyzing and visualizing 
 flight data. It includes the Flights class, designed for various 
 tasks like plotting airports in countries, creating flight distance histograms,
 and visualizing flight paths. The class manages data download, preprocessing,
