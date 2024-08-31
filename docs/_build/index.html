@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Welcome to Adpro_Group_20’s documentation! &#8212; Adpro_Group_20  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="welcome-to-adpro-group-20-s-documentation">
+<h1>Welcome to Adpro_Group_20’s documentation!<a class="headerlink" href="#welcome-to-adpro-group-20-s-documentation" title="Link to this heading">¶</a></h1>
+<p>This module provides a comprehensive solution for analyzing and visualizing flight data.</p>
+<p id="module-Class.flights_class_20">Flight Data Analysis</p>
+<p>This module provides a comprehensive solution for analyzing and visualizing
+flight data. It includes the Flights class, designed for various
+tasks like plotting airports in countries, creating flight distance histograms,
+and visualizing flight paths. The class manages data download, preprocessing,
+and visualization with libraries like Pandas, Matplotlib, and Geopandas.</p>
+<p>Flights automates flight data retrieval, processes the data for
+enhanced utility (such as calculating distances and merging datasets), and
+provides methods for detailed visual analyses. These capabilities enable
+in-depth study of global flight operations, including
+distance analysis, and identifying popular airplane models.</p>
+<p># Usage:
+from flights_class_20 import Flights</p>
+<p># Create an analysis tool instance
+flights_instance = Flights()</p>
+<p># Use class methods for different analyses</p>
+<p>Requirements:
+- Internet connection for data download.
+- Pandas for data manipulation.
+- Matplotlib for mapping.
+- and others, included in the yaml file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Class.flights_class_20.Flights">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Class.flights_class_20.</span></span><span class="sig-name descname"><span class="pre">Flights</span></span><a class="headerlink" href="#Class.flights_class_20.Flights" title="Link to this definition">¶</a></dt>
+<dd><p>The Flights class offers methods for downloading and processing flight data,
+including information about airports, airlines, routes, and airplanes. It also
+provides functionality for plotting various aspects of the flight data, such as
+flight routes, airport locations, and the most used airplane models.</p>
+<section id="attributes">
+<h2>Attributes:<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
+<p>airports: pandas DataFrame containing information about various airports.
+airlines: pandas DataFrame containing information about various airlines.
+routes: pandas DataFrame containing information about different flight routes.
+airplanes: pandas DataFrame containing information about different airplane models.
+geo_dataframe: GeoPandas DataFrame containing geographical data of countries.</p>
+</section>
+<section id="methods">
+<h2>Methods:<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>plot_airports(country: str) -&gt; plt.Figure:</dt><dd><p>Plots the location of airports in a given country on a map.</p>
+</dd>
+<dt>haversine(lon1: float, lat1: float, lon2: float, lat2: float) -&gt; float:</dt><dd><p>Calculates the distance between two points on the Earth’s surface.</p>
+</dd>
+<dt>distance_analysis(show_plot: bool=True) -&gt; None:</dt><dd><p>Analyzes and plots the distribution of distances covered by all flight routes.</p>
+</dd>
+<dt>plot_flight_routes(airport_code: str, internal: bool = False) -&gt; plt.Figure:</dt><dd><p>Plots the number of flights departing from a given airport. If ‘internal’ is True,
+only domestic flights are considered.</p>
+</dd>
+<dt>plot_most_used_airplane_models(countries: str | list[str] =</dt><dd><p>None, number: int = 10) -&gt; plt.Figure:
+Plots the top N most used airplane models based on the number of routes,
+optionally filtered by country.</p>
+</dd>
+<dt>aircrafts() -&gt; None:</dt><dd><p>Prints a list of unique aircraft names available in the dataset.</p>
+</dd>
+<dt>aircraft_info(aircraft_name: str) -&gt; Markdown:</dt><dd><p>Displays detailed information about a specific aircraft in markdown format.</p>
+</dd>
+<dt>airports_list() -&gt; None:</dt><dd><p>Prints a list of unique airport names available in the dataset.</p>
+</dd>
+<dt>airport_info(airport_name: str) -&gt; Markdown:</dt><dd><p>Displays detailed information about a specific airport in markdown format.</p>
+</dd>
+<dt>plot_flights_by_country(country_name: str, internal: bool =</dt><dd><p>False, distance_cutoff: int = 1000) -&gt; plt.Figure:
+Visualizes flight route distributions from a specified country,
+distinguishing between domestic and international,
+and short-haul versus long-haul flights.</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h2>Raises:<a class="headerlink" href="#raises" title="Link to this heading">¶</a></h2>
+<p>ValueError: If a specified country or airport code is not found in the dataset.</p>
+</section>
+<section id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
+<p># Create an instance of Flights
+flights_instance = Flights()</p>
+<p># Plot flight routes from Frankfurt Airport, including only internal flights
+flights_instance.plot_flight_routes(‘FRA’, internal=True)</p>
+<p># Plot locations of airports in Germany
+flights_instance.plot_airports(‘Germany’)</p>
+<p># Plot the top 10 most used airplane models in Germany
+flights_instance.plot_most_used_airplane_models(‘Germany’)</p>
+<p># Analyze and plot the distribution of flight distances
+flights_instance.distance_analysis()</p>
+<p># Visualize flights departing from Germany, including only internal flights
+flights_instance.plot_flights_by_country(‘Germany’, internal=True)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Class.flights_class_20.Flights.aircraft_info">
+<span class="sig-name descname"><span class="pre">aircraft_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aircraft_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Markdown</span></span></span><a class="headerlink" href="#Class.flights_class_20.Flights.aircraft_info" title="Link to this definition">¶</a></dt>
+<dd><p>Displays detailed information about a specific aircraft in markdown format.</p>
+<section id="parameters">
+<h3>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>aircraft_name<span class="classifier">str</span></dt><dd><p>The name of the aircraft model for which information is requested.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h3>Returns:<a class="headerlink" href="#returns" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>str</dt><dd><p>A markdown table displaying the specifications
+and details of the requested aircraft model.</p>
+</dd>
+</dl>
+</section>
+<section id="id1">
+<h3>Raises:<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>Exception</dt><dd><p>If the specified aircraft is not found in the dataset
+or if the OpenAI API key is not found.</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h3>Examples:<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p># Display detailed information about the Ilyushin IL96
+flights_instance.aircraft_info(‘Ilyushin IL96’)</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Class.flights_class_20.Flights.aircrafts">
+<span class="sig-name descname"><span class="pre">aircrafts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#Class.flights_class_20.Flights.aircrafts" title="Link to this definition">¶</a></dt>
+<dd><p>Prints a list of unique aircraft names available in the dataset.</p>
+<p>This method checks if the aircraft data is loaded and then prints the names of
+all unique aircraft models. If no aircraft data is available, it prints an
+appropriate message indicating the absence of data.</p>
+<section id="id3">
+<h3>Returns:<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p>None</p>
+</section>
+<section id="id4">
+<h3>Examples:<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p># Print the list of aircraft models
+flights_instance.aircrafts()</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Class.flights_class_20.Flights.airport_info">
+<span class="sig-name descname"><span class="pre">airport_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">airport_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Markdown</span></span></span><a class="headerlink" href="#Class.flights_class_20.Flights.airport_info" title="Link to this definition">¶</a></dt>
+<dd><p>Displays detailed information about a specific airport in markdown format.</p>
+<section id="id5">
+<h3>Parameters:<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>airport_name<span class="classifier">str</span></dt><dd><p>The name of the airport for which information is requested.</p>
+</dd>
+</dl>
+</section>
+<section id="id6">
+<h3>Raises:<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>Exception</dt><dd><p>If the specified airport is not found in the dataset
+or if the OpenAI API key is not found.</p>
+</dd>
+</dl>
+</section>
+<section id="shows">
+<h3>Shows:<a class="headerlink" href="#shows" title="Link to this heading">¶</a></h3>
+<p>A markdown table displaying the specifications and details of the
+requested airport.</p>
+</section>
+<section id="id7">
+<h3>Returns:<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Class.flights_class_20.Flights.airports_list">
+<span class="sig-name descname"><span class="pre">airports_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#Class.flights_class_20.Flights.airports_list" title="Link to this definition">¶</a></dt>
+<dd><p>Prints a list of unique airport names available in the dataset.</p>
+<p>This method checks if the airport data is loaded and then prints the names of
+all unique airports. If no airport data is available, it prints an
+appropriate message indicating the absence of data.</p>
+<section id="id8">
+<h3>Returns:<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
+<p>None</p>
+</section>
+<section id="id9">
+<h3>Examples:<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<p># Print the list of airports
+flights_instance.airports_list()</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Class.flights_class_20.Flights.distance_analysis">
+<span class="sig-name descname"><span class="pre">distance_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_plot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#Class.flights_class_20.Flights.distance_analysis" title="Link to this definition">¶</a></dt>
+<dd><p>Analyzes and plots the distribution of distances
+covered by all flight routes.
+This method uses the Haversine formula to calculate
+the distance between source and destination airports
+for each route and adds a new column ‘Distance’ to the
+routes DataFrame to store these distances.
+Optionally, it can also plot a histogram of
+these distances based on the show_plot parameter.</p>
+<section id="id10">
+<h3>Parameters:<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>show_plot<span class="classifier">bool, optional (default is True)</span></dt><dd><p>If True, plot the distribution of flight distances. Show_plt=False can be used
+to only create the column ‘Distance’ in the routes DataFrame but not plot the
+histogram.</p>
+</dd>
+</dl>
+</section>
+<section id="id11">
+<h3>Returns:<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
+<p>None</p>
+</section>
+<section id="id12">
+<h3>Examples:<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
+<p># Analyze and plot the distribution of flight distances
+flights_instance.distance_analysis2()</p>
+<p># Analyze the distribution of flight distances without plotting
+flights_instance.distance_analysis2(show_plot=False)</p>
+</section>
+<section id="note">
+<h3>Note:<a class="headerlink" href="#note" title="Link to this heading">¶</a></h3>
+<p>The return is None but the methods plots a histogram of
+the distribution of flight distances and adds a new column
+‘Distance’ to the routes DataFrame.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Class.flights_class_20.Flights.haversine">
+<span class="sig-name descname"><span class="pre">haversine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lon1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#Class.flights_class_20.Flights.haversine" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the great-circle distance between two points
+on the Earth’s surface given their longitude and latitude.
+This method uses the Haversine formula to compute the distance.</p>
+<section id="id13">
+<h3>Parameters:<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>lon1: float</dt><dd><p>Longitude of the first point.</p>
+</dd>
+<dt>lat1: float</dt><dd><p>Latitude of the first point.</p>
+</dd>
+<dt>lon2: float</dt><dd><p>Longitude of the second point.</p>
+</dd>
+<dt>lat2: float</dt><dd><p>Latitude of the second point.</p>
+</dd>
+</dl>
+</section>
+<section id="id14">
+<h3>Returns:<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>The distance in kilometers between the two points.</p>
+</dd>
+</dl>
+</section>
+<section id="id15">
+<h3>Raises:<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>TypeError:</dt><dd><p>If not all the ‘Latitude and Longitude’ arguments are floats.</p>
+</dd>
+</dl>
+</section>
+<section id="id16">
+<h3>Examples:<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
+<p># Calculate the distance between London (51.5074° N, 0.1278° W)
+and New York (40.7128° N, 74.0060° W)
+distance = flights_instance.haversine(-0.1278, 51.5074, -74.0060, 40.7128)
+print(distance)</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Class.flights_class_20.Flights.plot_airports">
+<span class="sig-name descname"><span class="pre">plot_airports</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="headerlink" href="#Class.flights_class_20.Flights.plot_airports" title="Link to this definition">¶</a></dt>
+<dd><p>Plots the geographical locations of airports within a specified country on a map.
+This method checks if the country exists in the dataset,
+filters the airports in that country,
+and then plots them on a world map with the country highlighted.</p>
+<section id="id17">
+<h3>Parameters:<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>country: str</dt><dd><p>The name of the country for which to plot the airports.</p>
+</dd>
+</dl>
+</section>
+<section id="id18">
+<h3>Returns:<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>plt.Figure</dt><dd><p>Returns a matplotlib Figure object containing the plot.</p>
+</dd>
+</dl>
+</section>
+<section id="id19">
+<h3>Raises:<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>TypeError:</dt><dd><p>If the ‘country’ argument is not a string.</p>
+</dd>
+<dt>ValueError:</dt><dd><p>If the specified country is not found in the dataset.</p>
+</dd>
+</dl>
+</section>
+<section id="id20">
+<h3>Examples:<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h3>
+<p># Plot airports in Germany
+flights_instance.plot_airports(‘Germany’)</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Class.flights_class_20.Flights.plot_flight_routes">
+<span class="sig-name descname"><span class="pre">plot_flight_routes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">airport_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">internal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="headerlink" href="#Class.flights_class_20.Flights.plot_flight_routes" title="Link to this definition">¶</a></dt>
+<dd><p>Plots the number of flights departing from a specific airport. Optionally,
+the method can filter the flights to show only domestic (internal) routes.</p>
+<section id="id21">
+<h3>Parameters:<a class="headerlink" href="#id21" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>airport_code: str</dt><dd><p>The IATA code of the airport to analyze.</p>
+</dd>
+<dt>internal: bool, optional (default is False)</dt><dd><p>If set to True, only domestic flights from the specified airport are considered.</p>
+</dd>
+</dl>
+</section>
+<section id="id22">
+<h3>Returns:<a class="headerlink" href="#id22" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>plt.Figure</dt><dd><p>Returns a matplotlib Figure object containing the plot.</p>
+</dd>
+</dl>
+</section>
+<section id="id23">
+<h3>Raises:<a class="headerlink" href="#id23" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>TypeError:</dt><dd><p>If the ‘airport_code’ argument is not a string,
+or if the ‘internal’ argument is not a boolean.</p>
+</dd>
+<dt>ValueError:</dt><dd><p>If the given airport code is not found in the dataset.</p>
+</dd>
+</dl>
+</section>
+<section id="id24">
+<h3>Examples:<a class="headerlink" href="#id24" title="Link to this heading">¶</a></h3>
+<p># Plot all flights from Frankfurt Airport
+flights_instance.plot_flight_routes(‘FRA’)</p>
+<p># Plot only domestic flights from Frankfurt Airport
+flights_instance.plot_flight_routes(‘FRA’, internal=True)</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Class.flights_class_20.Flights.plot_flights_by_country">
+<span class="sig-name descname"><span class="pre">plot_flights_by_country</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">internal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_cutoff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="headerlink" href="#Class.flights_class_20.Flights.plot_flights_by_country" title="Link to this definition">¶</a></dt>
+<dd><p>Visualizes flight route distributions from a specified country, distinguishing between
+domestic and international, and short-haul versus long-haul flights. Calculates and
+annotates the potential emissions reduction from replacing short-haul flights with
+rail services, based on a distance cutoff.</p>
+<section id="id25">
+<h3>Parameters:<a class="headerlink" href="#id25" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>country_name<span class="classifier">str</span></dt><dd><p>Name of the departure country.</p>
+</dd>
+<dt>internal<span class="classifier">bool, optional</span></dt><dd><p>Consider only domestic flights if True.</p>
+</dd>
+<dt>distance_cutoff<span class="classifier">int, optional</span></dt><dd><p>Distance in kilometers to define short-haul flights.</p>
+</dd>
+</dl>
+</section>
+<section id="id26">
+<h3>Returns:<a class="headerlink" href="#id26" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>plt.Figure</dt><dd><p>Returns a matplotlib Figure object containing the histogram.</p>
+</dd>
+</dl>
+</section>
+<section id="id27">
+<h3>Raises:<a class="headerlink" href="#id27" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>TypeError:</dt><dd><p>If the ‘country_name’ argument is not a string,
+or if the ‘internal’ argument is not a boolean,
+or if the ‘distance_cutoff’ argument is not an int.</p>
+</dd>
+<dt>ValueError:</dt><dd><p>If the specified country is not found in the dataset.</p>
+</dd>
+</dl>
+</section>
+<section id="id28">
+<h3>Shows:<a class="headerlink" href="#id28" title="Link to this heading">¶</a></h3>
+<p>A bar chart visualizing the number of short-haul and long-haul flights,
+with annotations for unique routes and potential emissions savings.</p>
+</section>
+<section id="id29">
+<h3>Examples:<a class="headerlink" href="#id29" title="Link to this heading">¶</a></h3>
+<p># Visualize flights departing from Germany, including only internal flights
+flights_instance.plot_flights_by_country(‘Germany’, internal=True)</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Class.flights_class_20.Flights.plot_most_used_airplane_models">
+<span class="sig-name descname"><span class="pre">plot_most_used_airplane_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">countries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="headerlink" href="#Class.flights_class_20.Flights.plot_most_used_airplane_models" title="Link to this definition">¶</a></dt>
+<dd><p>Visualizes the most frequently used airplane models based on the number of routes.
+This method can be filtered by country or countries to show data specific to those regions.
+If no country is specified, it considers the entire dataset.</p>
+<section id="id30">
+<h3>Parameters:<a class="headerlink" href="#id30" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>countries: Union[str, List[str]], optional</dt><dd><p>A single country or a list of countries for which to filter the data.
+If None, the data is not filtered by country.</p>
+</dd>
+<dt>number: int, optional (default is 10)</dt><dd><p>The number of top airplane models to display.</p>
+</dd>
+</dl>
+</section>
+<section id="id31">
+<h3>Returns:<a class="headerlink" href="#id31" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>plt.Figure</dt><dd><p>Returns a matplotlib Figure object containing the plot.</p>
+</dd>
+</dl>
+</section>
+<section id="id32">
+<h3>Raises:<a class="headerlink" href="#id32" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>TypeError:</dt><dd><p>If the ‘number’ argument is not an integer, or if the
+‘countries’ argument is not a string or a list of strings.</p>
+</dd>
+<dt>ValueError:</dt><dd><p>If any country specified in the countries is not found in the dataset.</p>
+</dd>
+</dl>
+</section>
+<section id="id33">
+<h3>Examples:<a class="headerlink" href="#id33" title="Link to this heading">¶</a></h3>
+<p># Plot the top 10 most used airplane models globally
+flights_instance.plot_most_used_airplane_models()</p>
+<p># Plot the top 5 most used airplane models in Germany and France
+flights_instance.plot_most_used_airplane_models(countries=[‘Germany’, ‘France’], number=5)</p>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Adpro_Group_20</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Davide Rebuzzini, Michel Oeding-erdel, Leonardo Hans Heinemann, Markus Giesbrecht.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
