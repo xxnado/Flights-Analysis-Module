@@ -33,7 +33,7 @@ These are essential for creating and managing the project environment using the 
 
   Wait for Conda to set up the environment. Once it's done, you can activate it. With the    environment active, all project dependencies are available for use.
 
-3. Launch the Showcase_Notebook_Group_20.ipynb notebook to view the project's main presentation and analysis.
+3. Launch the Showcase_Notebook.ipynb notebook to view a brief showcase of the main functionalities of the module.
 
 # Flights Class Details
 
