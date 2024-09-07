@@ -13,7 +13,7 @@ provides methods for detailed visual analyses. These capabilities enable
 in-depth study of global flight operations, including 
 distance analysis, and identifying popular airplane models.
 
-# Requirements:
+# Requirements
 
 Before you begin, ensure you have the following prerequisites installed on your system:
 - Python 3
@@ -24,14 +24,18 @@ These are essential for creating and managing the project environment using the 
 # How to Run the Project
 
 1. Clone the Repository
+   ```sh
+    git clone https://github.com/xxnado/Flights-Analysis-Module.git
+    cd Flights-Analysis-Module
+    ```
 
-2. Create and activate the Conda environment
+3. Create and activate the Conda environment
   
-  Use the provided Group_20_Environment.yaml file to create an environment with all          necessary dependencies:
+  Use the provided Group_20_Environment.yaml file to create an environment with all necessary dependencies:
 
         $ conda env create -f Group_20_Environment.yaml
 
-  Wait for Conda to set up the environment. Once it's done, you can activate it. With the    environment active, all project dependencies are available for use.
+  Wait for Conda to set up the environment. Once it's done, you can activate it. With the environment active, all project dependencies are available for use.
 
 3. Launch the Showcase_Notebook.ipynb notebook to view a brief showcase of the main functionalities of the module.
 
