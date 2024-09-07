@@ -1,4 +1,4 @@
-# Module Overview
+## Module Overview
 
 This module was developed as part of a group project in the 'Advanced Programming for Data Science' course at NOVA School of Business and Economics.
 The module provides a comprehensive solution for analyzing and visualizing 
@@ -13,7 +13,7 @@ provides methods for detailed visual analyses. These capabilities enable
 in-depth study of global flight operations, including 
 distance analysis, and identifying popular airplane models.
 
-# Requirements
+## Requirements
 
 Before you begin, ensure you have the following prerequisites installed on your system:
 - Python 3
@@ -21,7 +21,7 @@ Before you begin, ensure you have the following prerequisites installed on your 
 
 These are essential for creating and managing the project environment using the provided `Group_20_Environment.yaml` file.
 
-# How to Run the Project
+## How to Run the Project
 
 1. Clone the Repository
    ```sh
@@ -32,14 +32,14 @@ These are essential for creating and managing the project environment using the 
 3. Create and activate the Conda environment
   
   Use the provided Group_20_Environment.yaml file to create an environment with all necessary dependencies:
-
-        $ conda env create -f Group_20_Environment.yaml
-
+   ```sh
+    $ conda env create -f Group_20_Environment.yaml
+   ```
   Wait for Conda to set up the environment. Once it's done, you can activate it. With the environment active, all project dependencies are available for use.
 
 3. Launch the Showcase_Notebook.ipynb notebook to view a brief showcase of the main functionalities of the module.
 
-# Flights Class Details
+## Flights Class Details
 
     Attributes:
     -----------
