@@ -116,5 +116,5 @@ Setting the PEP 8 compliance threshold of pylint to 8 is a practical compromise 
 
 # License
 
-This project is licensed under the GNU General Public License - see the LICENSE.md file for details
+This project is licensed under the GNU General Public License - see the [LICENSE](https://github.com/xxnado/Flights-Analysis-Module/edit/main/LICENSE) file for details.
 
