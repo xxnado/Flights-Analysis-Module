@@ -31,13 +31,13 @@ These are essential for creating and managing the project environment using the 
 
 3. Create and activate the Conda environment
   
-  Use the provided Group_20_Environment.yaml file to create an environment with all necessary dependencies:
+  Use the provided `Group_20_Environment.yaml` file to create an environment with all necessary dependencies:
    ```sh
     $ conda env create -f Group_20_Environment.yaml
    ```
   Wait for Conda to set up the environment. Once it's done, you can activate it. With the environment active, all project dependencies are available for use.
 
-3. Launch the Showcase_Notebook.ipynb notebook to view a brief showcase of the main functionalities of the module.
+3. Launch the `Showcase_Notebook.ipynb` notebook to view a brief showcase of the main functionalities of the module.
 
 ## Flights Class Details
 
