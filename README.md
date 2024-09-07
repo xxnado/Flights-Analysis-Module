@@ -1,3 +1,4 @@
+# Flight Data Analysis Module
 ## Module Overview
 
 This module was developed as part of a group project in the 'Advanced Programming for Data Science' course at NOVA School of Business and Economics.
